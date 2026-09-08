@@ -1,0 +1,275 @@
+:root {
+    --bs-primary: #8b0000;
+    --bs-primary-rgb: 139, 0, 0;
+    --bs-secondary: #c0392b;
+    --bs-secondary-rgb: 192, 57, 43;
+    --bs-success: #28a745;
+    --bs-info: #17a2b8;
+    --bs-warning: #e74c3c;
+    --bs-danger: #c0392b;
+
+    /* Custom Theme Colors */
+    --theme-primary: #8b0000;
+    --theme-secondary: #c0392b;
+    --theme-accent: #e74c3c;
+    --theme-background: #f5f5f5;
+    --theme-dark-surface: #1a1a1a;
+    --theme-dark-surface-alt: #2c2c2c;
+    --theme-text: #1a1a1a;
+}
+
+body {
+    background-color: var(--theme-background);
+    color: var(--theme-text);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-page {
+    background: linear-gradient(135deg, var(--theme-dark-surface), var(--theme-primary));
+    min-height: 100vh;
+}
+
+.login-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 30px 40px rgba(0, 0, 0, 0.35);
+}
+
+.login-card .card-header {
+    background: linear-gradient(135deg, var(--theme-primary), var(--theme-secondary));
+    border-bottom: none;
+}
+
+/* ---------- Navbar / Sidebar ---------- */
+.navbar {
+    background-color: var(--theme-dark-surface) !important;
+    border-bottom: 3px solid var(--theme-primary);
+}
+
+.sidebar {
+    background-color: var(--theme-dark-surface-alt);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar .nav-link {
+    color: #e0e0e0;
+    border-radius: 8px;
+    padding: 10px 16px;
+    margin-bottom: 4px;
+    transition: all 0.3s ease;
+}
+
+.sidebar .nav-link:hover {
+    background-color: var(--theme-primary);
+    color: #ffffff;
+}
+
+.sidebar .nav-link.active {
+    background-color: var(--theme-primary);
+    color: #ffffff;
+}
+
+.sidebar .nav-link.text-danger {
+    color: var(--theme-accent) !important;
+}
+
+.sidebar .nav-link.text-danger:hover {
+    background-color: var(--theme-accent);
+    color: #ffffff !important;
+}
+
+/* ---------- Stat Cards ---------- */
+.stat-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+}
+
+.stat-card .card-body {
+    padding: 1.5rem;
+}
+
+.stat-card .card-title {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card .card-text {
+    font-size: 1.8rem;
+    margin-bottom: 0;
+}
+
+/* ---------- Charts ---------- */
+.chart-container {
+    position: relative;
+    height: 260px;
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- Filter Controls ---------- */
+.stock-filter-btn.active {
+    background-color: var(--theme-primary);
+    color: #ffffff;
+    border-color: var(--theme-primary);
+}
+
+.stock-filter-btn {
+    transition: all 0.2s ease;
+}
+
+#resetFilters {
+    color: var(--theme-secondary);
+    text-decoration: none;
+}
+
+#resetFilters:hover {
+    color: var(--theme-primary);
+    text-decoration: underline;
+}
+
+/* ---------- Search & Export ---------- */
+#searchInput:focus {
+    border-color: var(--theme-secondary);
+    box-shadow: 0 0 0 0.2rem rgba(192, 57, 43, 0.2);
+}
+
+#exportBtn {
+    border-color: var(--theme-primary);
+    color: var(--theme-primary);
+    transition: all 0.2s ease;
+}
+
+#exportBtn:hover {
+    background-color: var(--theme-primary);
+    color: #ffffff;
+}
+
+/* ---------- Inventory Table Row Highlighting ---------- */
+#inventoryTableBody tr.table-warning {
+    --bs-table-bg: rgba(231, 76, 60, 0.12);
+}
+
+#inventoryTableBody tr.table-danger {
+    --bs-table-bg: rgba(139, 0, 0, 0.12);
+}
+
+/* ---------- Low Stock Alert Banner ---------- */
+#alertSection .alert {
+    border-left: 4px solid var(--theme-accent);
+    border-radius: 8px;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Real-Time Update Toast ---------- */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.update-toast {
+    background-color: var(--theme-dark-surface);
+    color: #ffffff;
+    padding: 12px 18px;
+    border-radius: 8px;
+    border-left: 4px solid var(--theme-accent);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    font-size: 0.9rem;
+    max-width: 320px;
+    animation: toastIn 0.3s ease;
+}
+
+.update-toast.fade-out {
+    animation: toastOut 0.5s ease forwards;
+}
+
+@keyframes toastIn {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes toastOut {
+    from { opacity: 1; }
+    to { opacity: 0; transform: translateX(30px); }
+}
+
+/* ---------- Utility ---------- */
+.text-accent {
+    color: var(--theme-accent);
+}
+
+.btn-primary {
+    background-color: var(--theme-primary);
+    border-color: var(--theme-primary);
+}
+
+.btn-primary:hover {
+    background-color: #6b0000;
+    border-color: #6b0000;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    .sidebar {
+        min-height: auto !important;
+        height: auto !important;
+    }
+
+    .stat-card .card-text {
+        font-size: 1.4rem;
+    }
+
+    .chart-container {
+        height: 220px;
+    }
+
+    .toast-container {
+        left: 20px;
+        right: 20px;
+    }
+
+    .update-toast {
+        max-width: 100%;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--theme-secondary);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--theme-primary);
+}
